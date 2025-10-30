@@ -1,0 +1,1 @@
+public_users.get('/async/title/:title', async function (req, res) {  try {    const requestedTitle = req.params.title;    const book = await getBookListAsync("http://localhost:5000/title/" + requestedTitle);    res.json(book);  } catch (error) {    console.error(error);    res.status(500).json({ message: "Error retrieving book details" });  }});

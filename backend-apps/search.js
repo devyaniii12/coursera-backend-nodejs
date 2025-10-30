@@ -1,0 +1,1 @@
+public_users.get('/async/isbn/:isbn', async function (req, res) {  try {    const requestedIsbn = req.params.isbn;    const book = await getBookListAsync("http://localhost:5000/isbn/" + requestedIsbn);    res.json(book);  } catch (error) {    console.error(error);    res.status(500).json({ message: "Error retrieving book details" });  }});

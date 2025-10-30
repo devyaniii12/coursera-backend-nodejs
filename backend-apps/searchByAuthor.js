@@ -1,0 +1,1 @@
+public_users.get('/async/author/:author', async function (req, res) {  try {    const requestedAuthor = req.params.author;    const book = await getBookListAsync("http://localhost:5000/author/" + requestedAuthor);    res.json(book);  } catch (error) {    console.error(error);    res.status(500).json({ message: "Error retrieving book details" });  }});
